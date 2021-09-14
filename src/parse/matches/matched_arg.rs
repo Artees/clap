@@ -127,10 +127,9 @@ impl MatchedArg {
     pub(crate) fn contains_val(&self, val: &str) -> bool {
         self.vals_flatten().any(|v| {
             if self.case_insensitive {
-                v.eq_ignore_ascii_case(val)
-            } else {
-                OsString::as_os_str(v) == OsStr::new(val)
+	            eprintln!("case_insensitive is not supported");
             }
+            OsString::as_os_str(v) == OsStr::new(val)
         })
     }
 
